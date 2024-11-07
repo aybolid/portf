@@ -1,0 +1,28 @@
+---
+import Layout from "../layout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const works = await Astro.glob("../pages/work-history/*.md");
+---
+
+<Layout title="work history">
+  <h1 class="text-2xl">Work History</h1>
+  <section class="grid grid-cols-2 gap-6 mt-12">
+    {
+      works.map(({ frontmatter, url }) => (
+        <a href={url}>
+          <div class="border p-4 rounded-lg">
+            <h3 class="font-semibold">{frontmatter.company}</h3>
+            <h2 class="text-xl font-bold">{frontmatter.position}</h2>
+            <FormattedDate date={new Date(frontmatter.startDate)} /> -{" "}
+            {frontmatter.endDate ? (
+              <FormattedDate date={new Date(frontmatter.endDate)} />
+            ) : (
+              "present"
+            )}
+          </div>
+        </a>
+      ))
+    }
+  </section>
+</Layout>

@@ -1,0 +1,33 @@
+---
+const pages = await Astro.glob("../pages/*.astro");
+const pageLinks = pages.map((page) => page.url).filter(Boolean);
+
+const currentPathname = new URL(Astro.request.url).pathname;
+---
+
+<header class="py-2 bg-neutral-100 border-b">
+  <div
+    class="container mx-auto max-w-6xl flex justify-between gap-6 items-center"
+  >
+    <h1 class="text-3xl font-bold">
+      <a href="/">Matviy Ivanov</a>
+    </h1>
+    <nav class="flex gap-3 items-center">
+      {
+        pageLinks.map((url, idx, self) => (
+          <>
+            <a
+              class={
+                currentPathname.includes(url ?? "^#$5") ? "text-orange-500" : ""
+              }
+              href={url}
+            >
+              {url}
+            </a>
+            {idx !== self.length - 1 && <span class="text-neutral-500">•</span>}
+          </>
+        ))
+      }
+    </nav>
+  </div>
+</header>
