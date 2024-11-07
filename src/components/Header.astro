@@ -10,7 +10,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
     class="container mx-auto max-w-6xl flex justify-between gap-6 items-center"
   >
     <h1 class="text-3xl font-bold">
-      <a href="/">Matviy Ivanov</a>
+      <a href="/">matviy_ivanov_</a>
     </h1>
     <nav class="flex gap-3 items-center">
       {
@@ -18,7 +18,9 @@ const currentPathname = new URL(Astro.request.url).pathname;
           <>
             <a
               class={
-                currentPathname.includes(url ?? "^#$5") ? "text-orange-500" : ""
+                currentPathname.includes(url ?? "^#$5")
+                  ? "text-orange-500 font-semibold"
+                  : ""
               }
               href={url}
             >

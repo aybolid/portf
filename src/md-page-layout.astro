@@ -1,11 +1,12 @@
 ---
+import { GoBackButton } from "./solid/go-back-btn";
 import Layout from "./layout.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <Layout title="Test">
-  <a>{"< go back"}</a>
+  <GoBackButton client:load />
   <div class="prose max-w-full w-full">
     <slot />
   </div>

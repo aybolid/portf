@@ -1,6 +1,7 @@
 ---
 import Layout from "../layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import { CurrentDateTime } from "../solid/current-datetime";
 
 const works = await Astro.glob("../pages/work-history/*.md");
 ---
@@ -11,15 +12,27 @@ const works = await Astro.glob("../pages/work-history/*.md");
     {
       works.map(({ frontmatter, url }) => (
         <a href={url}>
-          <div class="border p-4 rounded-lg">
-            <h3 class="font-semibold">{frontmatter.company}</h3>
-            <h2 class="text-xl font-bold">{frontmatter.position}</h2>
-            <FormattedDate date={new Date(frontmatter.startDate)} /> -{" "}
-            {frontmatter.endDate ? (
-              <FormattedDate date={new Date(frontmatter.endDate)} />
-            ) : (
-              "present"
-            )}
+          <div class="border p-4 rounded-lg bg-neutral-100 hover:scale-105 hover:shadow-xl duration-100">
+            <div class="flex justify-between gap-2 items-center">
+              <h2 class="text-xl font-bold">{frontmatter.position}</h2>
+              <span class="flex gap-2 items-center">
+                <img
+                  src={`http://www.google.com/s2/favicons?domain=${frontmatter.domain}`}
+                />
+                <h3 class="font-semibold">{frontmatter.company}</h3>
+              </span>
+            </div>
+            <p class="my-3 text-neutral-500">{frontmatter.description}</p>
+            <div class="flex justify-center items-center border-t pt-4">
+              <span>
+                <FormattedDate date={new Date(frontmatter.startDate)} /> ->{" "}
+                {frontmatter.endDate ? (
+                  <FormattedDate date={new Date(frontmatter.endDate)} />
+                ) : (
+                  <CurrentDateTime client:visible />
+                )}
+              </span>
+            </div>
           </div>
         </a>
       ))
