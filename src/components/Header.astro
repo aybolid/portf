@@ -8,7 +8,9 @@ const pageLinks = pages.map((page) => page.url).filter(Boolean);
 const currentPathname = new URL(Astro.request.url).pathname;
 ---
 
-<header class="py-2 bg-neutral-100 border-b">
+<header
+  class="py-2 bg-neutral-100 border-b sticky inset-0 z-50 shadow-xl shadow-neutral-50"
+>
   <div
     class="container mx-auto max-w-6xl flex justify-between gap-6 items-center"
   >

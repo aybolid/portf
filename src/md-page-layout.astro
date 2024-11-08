@@ -3,10 +3,27 @@ import { GoBackButton } from "./solid/go-back-btn";
 import Layout from "./layout.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
+const mdFiles = await Astro.glob("../**/*.md");
+
+const currentMdFile =
+  mdFiles.find((file) => file.url?.includes(pathname)) ?? null;
 ---
 
-<Layout title="Test">
+<Layout title={currentMdFile?.frontmatter.title ?? "work history"}>
   <GoBackButton client:load />
+
+  {
+    currentMdFile?.frontmatter.tags.length > 0 && (
+      <div class="flex flex-wrap w-full gap-2 my-3">
+        {currentMdFile?.frontmatter.tags.map((tag: string) => (
+          <span class="text-sm bg-neutral-100 border px-2 rounded-md">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )
+  }
+
   <div class="prose max-w-full w-full">
     <slot />
   </div>
