@@ -16,6 +16,3 @@ endDate:
 ---
 
 # JavaScript Developer at [DevelopsToday](https://develops.today/)
-
-DevelopsToday is a software development company that provides software development services to small and medium-sized businesses.
-The company has a team of experienced developers who are passionate about creating high-quality software solutions.
