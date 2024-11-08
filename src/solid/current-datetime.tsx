@@ -28,7 +28,7 @@ const CurrentDateTime = () => {
   };
 
   return (
-    <time dateTime={date().toISOString()} class="text-orange-500">
+    <time dateTime={date().toISOString()} class="text-accent">
       {formattedDate()}
     </time>
   );

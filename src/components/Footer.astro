@@ -4,14 +4,14 @@ import { GITHUB_URL, LINKEDIN_URL } from "../consts";
 const now = new Date();
 ---
 
-<footer class="pt-2 bg-neutral-100 border-t pb-24">
+<footer class="pt-2 border-t pb-24 bg-muted/20">
   <div class="container mx-auto max-w-6xl flex justify-between items-center">
     <small>&copy; {now.getFullYear()} Matviy Ivanov</small>
     <div class="grid grid-cols-2 gap-2">
       <a
         href={GITHUB_URL}
         target="_blank"
-        class="bg-white border rounded-md flex items-center justify-between px-2 hover:border-orange-500"
+        class="border rounded-md flex items-center justify-between px-2 hover:border-accent bg-background"
       >
         <span class="mr-2">
           <svg
@@ -35,7 +35,7 @@ const now = new Date();
       <a
         href={LINKEDIN_URL}
         target="_blank"
-        class="bg-white border rounded-md flex items-center gap-1 px-2 hover:border-orange-500"
+        class="border rounded-md flex items-center gap-1 px-2 hover:border-accent bg-background"
       >
         <span class="mr-2">
           <svg

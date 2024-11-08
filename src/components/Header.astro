@@ -9,7 +9,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
 ---
 
 <header
-  class="py-2 bg-neutral-100 border-b sticky inset-0 z-50 shadow-xl shadow-neutral-50"
+  class="py-2 bg-background border-b sticky inset-0 z-50 shadow-xl shadow-background"
 >
   <div
     class="container mx-auto max-w-6xl flex justify-between gap-6 items-center"
@@ -23,7 +23,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
           <>
             <a
               class={cn("hover:underline", {
-                "text-orange-500 font-semobold": currentPathname.includes(
+                "text-accent font-semobold": currentPathname.includes(
                   url ?? "^#$5",
                 ),
               })}
@@ -31,7 +31,9 @@ const currentPathname = new URL(Astro.request.url).pathname;
             >
               {url}
             </a>
-            {idx !== self.length - 1 && <span class="text-neutral-500">•</span>}
+            {idx !== self.length - 1 && (
+              <span class="text-muted-foreground">{"<>"}</span>
+            )}
           </>
         ))
       }
