@@ -4,8 +4,11 @@ import FormattedDate from "../components/FormattedDate.astro";
 import { CurrentDateTime } from "../solid/current-datetime";
 import { cn } from "../utils/cn";
 import { EMAIL } from "../consts";
+import type { PostFrontmatter } from "../types/md-frontmatter";
 
-const works = await Astro.glob("../pages/work-history/*.md");
+const works = await Astro.glob<PostFrontmatter<"work">>(
+  "../pages/work-history/*.md",
+);
 const isOddAmountOfPosts = works.length % 2 !== 0;
 ---
 
@@ -27,7 +30,7 @@ const isOddAmountOfPosts = works.length % 2 !== 0;
           href={url}
           class={cn(isOddAmountOfPosts && idx === 0 && "col-span-2")}
         >
-          <div class="border p-4 rounded-lg hover:scale-105 hover:shadow-xl duration-100">
+          <div class="border p-4 rounded-lg hover:bg-muted/20 hover:shadow-xl duration-100">
             <div class="flex justify-between gap-2 items-center">
               <h2 class="text-xl font-bold">{frontmatter.position}</h2>
               <span class="flex gap-2 items-center">
