@@ -3,6 +3,7 @@ import Layout from "../layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { CurrentDateTime } from "../solid/current-datetime";
 import { cn } from "../utils/cn";
+import { EMAIL } from "../consts";
 
 const works = await Astro.glob("../pages/work-history/*.md");
 const isOddAmountOfPosts = works.length % 2 !== 0;
@@ -10,7 +11,16 @@ const isOddAmountOfPosts = works.length % 2 !== 0;
 
 <Layout title="work history">
   <h1 class="text-2xl">Work History</h1>
-  <section class="grid grid-cols-2 gap-6 mt-12">
+  <div class="border border-accent bg-accent/10 rounded-md p-4 my-6">
+    <p class="text-lg font-bold">Want to be part of this list?</p>
+    <p class="text-muted-foreground">
+      Reach out to me via email: <a
+        href={`mailto:${EMAIL}`}
+        class="underline text-foreground">{EMAIL}</a
+      >
+    </p>
+  </div>
+  <section class="grid grid-cols-2 gap-6">
     {
       works.map(({ frontmatter, url }, idx) => (
         <a
@@ -35,7 +45,7 @@ const isOddAmountOfPosts = works.length % 2 !== 0;
                 {frontmatter.endDate ? (
                   <FormattedDate date={new Date(frontmatter.endDate)} />
                 ) : (
-                  <CurrentDateTime client:visible />
+                  <CurrentDateTime client:load />
                 )}
               </span>
             </div>

@@ -4,7 +4,7 @@ const GoBackButton = () => {
   };
 
   return (
-    <button onClick={handleClick} class="text-orange-500">
+    <button onClick={handleClick} class="text-accent">
       {"< go back"}
     </button>
   );
