@@ -13,7 +13,7 @@ const currentMdFile =
   <GoBackButton client:load />
 
   {
-    currentMdFile?.frontmatter.tags.length > 0 && (
+    currentMdFile?.frontmatter.tags?.length > 0 && (
       <div class="flex flex-wrap w-full gap-2 my-3">
         {currentMdFile?.frontmatter.tags.map((tag: string) => (
           <span class="text-sm bg-muted border px-2 rounded-md">{tag}</span>

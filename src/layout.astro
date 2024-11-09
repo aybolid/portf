@@ -30,10 +30,7 @@ const { title } = Astro.props;
   </head>
   <body class="h-full w-full flex flex-col gap-16">
     <Header />
-    <main
-      transition:animate={fade({ duration: "0.1s" })}
-      class="flex-1 container mx-auto max-w-5xl"
-    >
+    <main class="flex-1 container mx-auto max-w-5xl">
       <slot />
     </main>
     <Footer />

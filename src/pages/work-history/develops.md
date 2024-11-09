@@ -6,16 +6,14 @@ company: DevelopsToday
 domain: develops.today
 position: JavaScript Developer
 description: >
-  FE and BE developer. Building projects using modern technologies in various domains.
-  React and it's ecosystem on frontend. React native for mobile apps.
-  Server side with AWS, Node.js and SQL / NoSQL databases.
-  Onboarding new developers and managing projects.
+  I worked as a JavaScript developer on both frontend and backend in an outstaff company across various projects.
 
 tags:
   - react
   - react-native
   - node
-  - js / ts
+  - js
+  - ts
   - redux
   - serverless
   - sql

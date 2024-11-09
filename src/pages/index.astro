@@ -1,7 +1,20 @@
 ---
 import Layout from "../layout.astro";
+
+const meMd = (await Astro.glob("../pages/_me.md"))[0];
 ---
 
 <Layout title="home">
-  <p>That's me and my website! 👋</p>
+  <p class="text-sm">That's me and my website! 👋</p>
+  <h1 class="text-3xl font-black">
+    Hey, I'm <span class="text-accent">Matviy Ivanov</span> and I'm a software engineer.
+  </h1>
+  <p class="w-full text-right text-sm">
+    JavaScript developer with experience working on the frontend and backend.
+  </p>
+  <div
+    class="prose dark:prose-invert prose-a:decoration-accent max-w-full w-full mt-12"
+  >
+    <meMd.Content />
+  </div>
 </Layout>
