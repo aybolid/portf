@@ -1,20 +1,22 @@
 ---
 import Layout from "../layout.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-import { CurrentDateTime } from "../solid/current-datetime";
-import { cn } from "../utils/cn";
 import { EMAIL } from "../consts";
 import type { PostFrontmatter } from "../types/md-frontmatter";
+import Timeline from "../components/Timeline.astro";
 
-const works = await Astro.glob<PostFrontmatter<"work">>(
-  "../pages/work-history/*.md",
+const works = (
+  await Astro.glob<PostFrontmatter<"work">>("../pages/work-history/*.md")
+).sort(
+  (a, b) =>
+    new Date(b.frontmatter.startDate).getTime() -
+    new Date(a.frontmatter.startDate).getTime(),
 );
-const isOddAmountOfPosts = works.length % 2 !== 0;
 ---
 
 <Layout title="work history">
   <h1 class="text-2xl">Work History</h1>
-  <div class="border border-accent bg-accent/10 rounded-md p-4 my-6">
+
+  <div class="border border-accent bg-accent/10 rounded-md p-4 mt-6 mb-10">
     <p class="text-lg font-bold">Want to be part of this list?</p>
     <p class="text-muted-foreground">
       Reach out to me via email: <a
@@ -23,37 +25,33 @@ const isOddAmountOfPosts = works.length % 2 !== 0;
       >
     </p>
   </div>
-  <section class="grid grid-cols-2 gap-6">
+
+  <section class="grid">
     {
-      works.map(({ frontmatter, url }, idx) => (
-        <a
-          href={url}
-          class={cn(isOddAmountOfPosts && idx === 0 && "col-span-2")}
+      works.map(({ frontmatter, url }, idx, self) => (
+        <Timeline
+          startDate={frontmatter.startDate}
+          endDate={frontmatter.endDate}
+          isFirst={idx === 0}
+          isLast={idx === self.length - 1}
         >
-          <div class="border p-4 rounded-lg hover:bg-muted/20 hover:shadow-xl duration-100">
-            <div class="flex justify-between gap-2 items-center">
-              <h2 class="text-xl font-bold">{frontmatter.position}</h2>
-              <span class="flex gap-2 items-center">
-                <img
-                  src={`http://www.google.com/s2/favicons?domain=${frontmatter.domain}`}
-                />
-                <h3 class="font-semibold">{frontmatter.company}</h3>
-              </span>
+          <a href={url}>
+            <div class="border p-4 rounded-lg hover:bg-muted/30 duration-100">
+              <div class="flex justify-between gap-2 items-center">
+                <h2 class="text-xl font-bold">{frontmatter.position}</h2>
+                <span class="flex gap-2 items-center">
+                  <img
+                    src={`http://www.google.com/s2/favicons?domain=${frontmatter.domain}`}
+                  />
+                  <h3 class="font-semibold">{frontmatter.company}</h3>
+                </span>
+              </div>
+              <p class="my-3 text-muted-foreground">
+                {frontmatter.description}
+              </p>
             </div>
-            <p class="my-3 text-muted-foreground">{frontmatter.description}</p>
-            <div class="flex justify-center items-center border-t pt-4">
-              <span>
-                <FormattedDate date={new Date(frontmatter.startDate)} />
-                <span class="text-muted-foreground">{" -> "}</span>
-                {frontmatter.endDate ? (
-                  <FormattedDate date={new Date(frontmatter.endDate)} />
-                ) : (
-                  <CurrentDateTime client:load />
-                )}
-              </span>
-            </div>
-          </div>
-        </a>
+          </a>
+        </Timeline>
       ))
     }
   </section>

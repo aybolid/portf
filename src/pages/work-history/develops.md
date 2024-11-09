@@ -6,7 +6,8 @@ company: DevelopsToday
 domain: develops.today
 position: JavaScript Developer
 description: >
-  I worked as a JavaScript developer on both frontend and backend in an outstaff company across various projects.
+  Working as a JavaScript developer on both frontend and backend in an outstaff company across various projects.
+  Working with technologies like React, Next.js, Remix and React Native on frontend and Node.js, Express and AWS on backend.
 
 tags:
   - react

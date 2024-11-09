@@ -1,0 +1,67 @@
+---
+import { undefined } from "astro:schema";
+import { CurrentDateTime } from "../solid/current-datetime";
+import { cn } from "../utils/cn";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  startDate: string;
+  endDate: string | null;
+  isFirst: boolean;
+  isLast: boolean;
+}
+
+const { startDate, endDate, isFirst, isLast } = Astro.props;
+
+const getMonthDiff = (startDate: string, endDate: string | null) => {
+  if (!endDate) {
+    endDate = new Date().toString();
+  }
+  const d1 = new Date(startDate);
+  const d2 = new Date(endDate);
+
+  return (
+    d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear())
+  );
+};
+
+const monthDiff = getMonthDiff(startDate, endDate);
+---
+
+<div
+  class={cn(
+    "flex flex-col gap-2 h-full w-full pl-8 py-10 border-l-2 relative",
+    !endDate && "border-dashed",
+  )}
+>
+  <span class="text-xs -rotate-90 absolute -left-12 top-1/2 transalte-y-1/2">
+    {monthDiff}
+    {monthDiff > 1 ? "months" : "month"}
+  </span>
+
+  {
+    isFirst && (
+      <span class="w-0 h-0 border-l-[6px] border-l-transparent border-b-[14px] border-b-accent border-r-[6px] border-r-transparent absolute -top-1 -left-1.5" />
+    )
+  }
+  <span class="absolute top-2 left-4 text-xs" title="End date">
+    {
+      endDate ? (
+        <FormattedDate date={new Date(endDate)} />
+      ) : (
+        <CurrentDateTime client:load />
+      )
+    }
+  </span>
+  <slot />
+  <span class="absolute bottom-2 left-4 text-xs" title="Start date">
+    <FormattedDate date={new Date(startDate)} />
+  </span>
+  {
+    isLast ? (
+      <span class="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-border" />
+    ) : (
+      <span class="absolute -bottom-0 -left-2.5 w-5 h-1 rounded-full bg-border" />
+    )
+  }
+</div>
