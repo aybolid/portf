@@ -1,5 +1,5 @@
 ---
-import { GITHUB_URL, LINKEDIN_URL } from "../consts";
+import { GITHUB_URL, LINKEDIN_URL, NAME } from "../consts";
 
 const now = new Date();
 ---
@@ -8,7 +8,7 @@ const now = new Date();
   <div
     class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4"
   >
-    <small>&copy; {now.getFullYear()} Matviy Ivanov</small>
+    <small>&copy; {now.getFullYear()} {NAME}</small>
     <div class="grid grid-cols-2 gap-2">
       <a
         href={GITHUB_URL}

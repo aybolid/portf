@@ -17,7 +17,7 @@ const works = (
   <h1 class="text-2xl">Work History</h1>
 
   <div class="border border-accent bg-accent/10 rounded-md p-4 mt-6 mb-10">
-    <p class="md:text-lg font-bold">Want to be part of this list?</p>
+    <p class="md:text-lg font-bold">Want to be a part of this list? 🥸</p>
     <p class="text-muted-foreground text-sm md:text-base">
       Reach out to me via email: <a
         href={`mailto:${EMAIL}`}
@@ -36,7 +36,7 @@ const works = (
           isLast={idx === self.length - 1}
         >
           <a href={url}>
-            <div class="border p-4 rounded-lg hover:bg-muted/30 duration-100">
+            <div class="border p-4 rounded-lg bg-background hover:bg-muted/30 hover:border-accent group">
               <div class="flex justify-between gap-2 md:items-center flex-col md:flex-row">
                 <h2 class="text-xl font-bold">{frontmatter.position}</h2>
                 <span class="flex gap-2 items-center">
@@ -46,7 +46,7 @@ const works = (
                   <h3 class="font-semibold">{frontmatter.company}</h3>
                 </span>
               </div>
-              <p class="my-3 text-muted-foreground text-sm md:text-base">
+              <p class="my-3 text-muted-foreground text-sm">
                 {frontmatter.description}
               </p>
             </div>

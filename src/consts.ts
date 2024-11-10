@@ -1,4 +1,5 @@
 export const SITE_TITLE = "matviy_ivanov_";
+export const NAME = "Matviy Ivanov";
 
 export const GITHUB_URL = "https://github.com/aybolid";
 export const LINKEDIN_URL =
