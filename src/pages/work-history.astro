@@ -17,8 +17,8 @@ const works = (
   <h1 class="text-2xl">Work History</h1>
 
   <div class="border border-accent bg-accent/10 rounded-md p-4 mt-6 mb-10">
-    <p class="text-lg font-bold">Want to be part of this list?</p>
-    <p class="text-muted-foreground">
+    <p class="md:text-lg font-bold">Want to be part of this list?</p>
+    <p class="text-muted-foreground text-sm md:text-base">
       Reach out to me via email: <a
         href={`mailto:${EMAIL}`}
         class="underline text-foreground">{EMAIL}</a
@@ -37,7 +37,7 @@ const works = (
         >
           <a href={url}>
             <div class="border p-4 rounded-lg hover:bg-muted/30 duration-100">
-              <div class="flex justify-between gap-2 items-center">
+              <div class="flex justify-between gap-2 md:items-center flex-col md:flex-row">
                 <h2 class="text-xl font-bold">{frontmatter.position}</h2>
                 <span class="flex gap-2 items-center">
                   <img
@@ -46,7 +46,7 @@ const works = (
                   <h3 class="font-semibold">{frontmatter.company}</h3>
                 </span>
               </div>
-              <p class="my-3 text-muted-foreground">
+              <p class="my-3 text-muted-foreground text-sm md:text-base">
                 {frontmatter.description}
               </p>
             </div>

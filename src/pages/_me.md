@@ -1,7 +1,7 @@
 ## Important things
 
-<div class='flex gap-4'>
-  <div class='w-[340px]'>
+<div class='flex md:flex-row flex-col gap-4 items-center'>
+  <div class='max-w-[340px] w-full'>
     <img src="/burger.jpg" alt="me" class="rounded-md border-2 border-accent" />
   </div>
 

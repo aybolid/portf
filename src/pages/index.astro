@@ -5,11 +5,13 @@ const meMd = (await Astro.glob("../pages/_me.md"))[0];
 ---
 
 <Layout title="home">
-  <p class="text-sm">That's me and my website! 👋</p>
-  <h1 class="text-3xl font-black">
+  <p class="text-xs md:text-sm text-muted-foreground">
+    That's me and my website! 👋
+  </p>
+  <h1 class="text-xl md:text-3xl font-black leading-none">
     Hey, I'm <span class="text-accent">Matviy Ivanov</span> and I'm a software engineer.
   </h1>
-  <p class="w-full text-right text-sm">
+  <p class="w-full text-right text-xs md:text-sm text-muted-foreground">
     JavaScript developer with experience working on the frontend and backend.
   </p>
   <div
