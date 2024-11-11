@@ -21,12 +21,12 @@ const currentPathname = new URL(Astro.request.url).pathname;
     <h1 class="text-3xl font-bold">
       <a href="/">{SITE_TITLE}</a>
     </h1>
-    <nav class="flex gap-3 items-center">
+    <nav class="flex gap-2 md:gap-3 items-center">
       {
         pageLinks.map((url, idx, self) => (
           <>
             <a
-              class={cn("hover:underline", {
+              class={cn("hover:underline text-nowrap text-sm md:text-base", {
                 "text-accent font-semobold": currentPathname.includes(
                   url ?? "^#$5",
                 ),
@@ -36,7 +36,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
               {url}
             </a>
             {idx !== self.length - 1 && (
-              <span class="text-muted-foreground">{"<>"}</span>
+              <span class="text-muted-foreground text-xs">{"<>"}</span>
             )}
           </>
         ))
