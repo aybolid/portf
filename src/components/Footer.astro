@@ -1,14 +1,19 @@
 ---
 import { GITHUB_URL, LINKEDIN_URL, NAME } from "../consts";
+import { ThemeToggle } from "../solid/theme-toggle";
 
 const now = new Date();
 ---
 
 <footer class="pt-2 border-t pb-24 bg-muted/20">
   <div
-    class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4"
+    class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-start gap-4"
   >
-    <small>&copy; {now.getFullYear()} {NAME}</small>
+    <div class="flex flex-col gap-2">
+      <small>&copy; {now.getFullYear()} {NAME}</small>
+      <ThemeToggle client:load />
+    </div>
+
     <div class="grid grid-cols-2 gap-2">
       <a
         href={GITHUB_URL}
