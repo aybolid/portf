@@ -1,9 +1,13 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { LINKS_ORDER, SITE_TITLE } from "../consts";
 import { cn } from "../utils/cn";
 
 const pages = await Astro.glob("../pages/*.astro");
-const pageLinks = pages.map((page) => page.url).filter(Boolean);
+const pageLinks = pages
+  .map((page) => page.url)
+  .filter(Boolean)
+  // @ts-expect-error this is fine
+  .toSorted((a, b) => LINKS_ORDER[a] - LINKS_ORDER[b]);
 
 const currentPathname = new URL(Astro.request.url).pathname;
 ---

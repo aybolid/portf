@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build --remote",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "prettier --check . && astro check",
-    "fix": "prettier --write ."
+    "fix": "prettier --write .",
+    "db-push": "astro db push --remote"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

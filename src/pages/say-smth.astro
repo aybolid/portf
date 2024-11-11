@@ -50,32 +50,33 @@ if (Astro.request.method === "POST") {
 
   {
     !pendingComment && (
-      <form
-        class="grid gap-2 mt-6 bg-muted/40 rounded-md border p-4"
-        method="POST"
-      >
+      <form class="grid gap-2 mt-6" method="POST">
         <label for="author">Name</label>
         <input
+          placeholder="John Doe"
           type
           type="text"
           name="author"
           id="author"
-          class="bg-background border rounded-md h-8 px-2 focus:border-accent focus:outline-none"
+          class="bg-background border rounded-md h-8 px-2 focus:border-accent focus:outline-none placeholder:text-muted-foreground/70"
           required
           minlength="2"
+          maxlength="15"
         />
         <label for="content">Comment</label>
         <textarea
+          placeholder="Hey! This is a comment. How cool is that?"
           required
           minlength="8"
+          maxlength="200"
           name="content"
           id="content"
-          class="bg-background border rounded-md h-24 min-h-8 px-2 resize-y max-h-32 focus:border-accent focus:outline-none"
+          class="bg-background border rounded-md h-24 min-h-8 py-1 px-2 resize-y max-h-32 focus:border-accent focus:outline-none placeholder:text-muted-foreground/70"
         />
         {error && <p class="text-destructive">{error}</p>}
         <div class="flex justify-end items-center mt-4">
-          <button class="bg-accent rounded-md px-2 text-white">
-            Send a comment
+          <button class="bg-accent rounded-md px-2 text-white hover:bg-accent/90">
+            send a comment
           </button>
         </div>
       </form>
@@ -101,7 +102,7 @@ if (Astro.request.method === "POST") {
             )}
           >
             Thanks! This is a preview of your comment. It will be published as
-            soon as I review it. Safety first! 👷‍♂️
+            soon as I approve it. Safety first! 👷‍♂️
           </p>
         </div>
       )
