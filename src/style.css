@@ -13,8 +13,8 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 243.4 75.4% 58.6%;
+    --warn: 43.3 96.4% 56.3%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
 
     --radius: 0.5rem;
@@ -30,8 +30,8 @@
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
     --accent: 243.4 75.4% 58.6%;
+    --warn: 37.7 92.1% 50.2%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
   }
 }
