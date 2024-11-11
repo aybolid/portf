@@ -7,7 +7,7 @@ const pageLinks = pages
   .map((page) => page.url)
   .filter(Boolean)
   // @ts-expect-error this is fine
-  .toSorted((a, b) => LINKS_ORDER[a] - LINKS_ORDER[b]);
+  .sort((a, b) => LINKS_ORDER[a] - LINKS_ORDER[b]);
 
 const currentPathname = new URL(Astro.request.url).pathname;
 ---
