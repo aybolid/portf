@@ -1,10 +1,10 @@
 ---
-import { GoBackButton } from "./solid/go-back-btn";
 import Layout from "./layout.astro";
 import type {
   ProjectFrontmatter,
   WorkFrontmatter,
 } from "./types/md-frontmatter";
+import GoBack from "./components/GoBack.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
 const mdFiles = await Astro.glob<WorkFrontmatter | ProjectFrontmatter>(
@@ -16,7 +16,7 @@ const currentMdFile =
 ---
 
 <Layout title={currentMdFile?.frontmatter.title ?? "work history"}>
-  <GoBackButton client:load />
+  <GoBack />
 
   {
     !!currentMdFile?.frontmatter.tags.length && (

@@ -1,0 +1,11 @@
+---
+
+---
+
+<button id="backButton" type="button" class="text-accent">{"< go back"}</button>
+
+<script is:inline>
+  document.getElementById("backButton").addEventListener("click", () => {
+    window.history.back();
+  });
+</script>
