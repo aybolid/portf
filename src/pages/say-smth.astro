@@ -4,8 +4,8 @@ export const prerender = false;
 import Layout from "../layout.astro";
 import { Comment, db, desc, eq } from "astro:db";
 import { cn } from "../utils/cn";
-import FormattedDate from "../components/FormattedDate.astro";
-import HomeLink from "../components/HomeLink.astro";
+import FormattedDate from "../components/formatted-date.astro";
+import HomeLink from "../components/home-link.astro";
 
 const comments = await db
   .select()

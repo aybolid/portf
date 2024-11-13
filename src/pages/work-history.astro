@@ -2,8 +2,8 @@
 import Layout from "../layout.astro";
 import { EMAIL } from "../consts";
 import type { PostFrontmatter } from "../types/md-frontmatter";
-import Timeline from "../components/Timeline.astro";
-import HomeLink from "../components/HomeLink.astro";
+import Timeline from "../components/timeline.astro";
+import HomeLink from "../components/home-link.astro";
 
 const works = (
   await Astro.glob<PostFrontmatter<"work">>("../pages/work-history/*.md")

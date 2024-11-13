@@ -4,7 +4,7 @@ import type {
   ProjectFrontmatter,
   WorkFrontmatter,
 } from "./types/md-frontmatter";
-import GoBack from "./components/GoBack.astro";
+import GoBack from "./components/go-back.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
 const mdFiles = await Astro.glob<WorkFrontmatter | ProjectFrontmatter>(
