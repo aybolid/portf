@@ -29,12 +29,14 @@ import { ThemeToggle } from "../../solid/theme-toggle";
       <h3 class="text-lg">Here are some useful links:</h3>
       <div class="grid grid-cols-2 gap-4 mt-6">
         <a
+          id="email"
           href={`mailto:${EMAIL}`}
           class="col-span-2 font-semibold border rounded-md text-center px-2 py-1 hover:border-accent bg-background hover:bg-gradient-to-r from-accent/10 via-transparent to-transparent"
         >
           {EMAIL}</a
         >
         <a
+          id="github"
           href={GITHUB_URL}
           target="_blank"
           class="border rounded-md flex items-center justify-between px-2 py-1 hover:border-accent bg-background hover:bg-gradient-to-r from-accent/10 via-transparent to-transparent"
@@ -59,6 +61,7 @@ import { ThemeToggle } from "../../solid/theme-toggle";
           <span>GitHub</span>
         </a>
         <a
+          id="linkedin"
           href={LINKEDIN_URL}
           target="_blank"
           class="border rounded-md flex items-center justify-between px-2 py-1 hover:border-accent bg-background hover:bg-gradient-to-r from-accent/10 via-transparent to-transparent"
@@ -89,3 +92,16 @@ import { ThemeToggle } from "../../solid/theme-toggle";
     </section>
   </div>
 </Layout>
+
+<script is:inline>
+  const linkIds = ["email", "github", "linkedin"];
+
+  for (const id of linkIds) {
+    const link = document.getElementById(id);
+    link?.addEventListener("click", () => {
+      window.posthog?.capture("Social link click", {
+        link: id,
+      });
+    });
+  }
+</script>
