@@ -5,6 +5,7 @@ import Layout from "../layout.astro";
 import { Comment, db, desc, eq } from "astro:db";
 import { cn } from "../utils/cn";
 import FormattedDate from "../components/FormattedDate.astro";
+import HomeLink from "../components/HomeLink.astro";
 
 const comments = await db
   .select()
@@ -46,6 +47,7 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout title="say smth">
+  <HomeLink />
   <h1 class="text-2xl">Comments</h1>
 
   {

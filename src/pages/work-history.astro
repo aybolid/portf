@@ -3,6 +3,7 @@ import Layout from "../layout.astro";
 import { EMAIL } from "../consts";
 import type { PostFrontmatter } from "../types/md-frontmatter";
 import Timeline from "../components/Timeline.astro";
+import HomeLink from "../components/HomeLink.astro";
 
 const works = (
   await Astro.glob<PostFrontmatter<"work">>("../pages/work-history/*.md")
@@ -14,6 +15,7 @@ const works = (
 ---
 
 <Layout title="work history">
+  <HomeLink />
   <h1 class="text-2xl">Work History</h1>
 
   <div class="border border-accent bg-accent/10 rounded-md p-4 mt-6 mb-10">
