@@ -1,14 +1,14 @@
 ---
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from "../consts";
 import Layout from "../layout.astro";
-import { ThemeToggle } from "../solid/theme-toggle";
+// import { ThemeToggle } from "../solid/theme-toggle";
 ---
 
 <Layout title="useful links" noFooter noHeader>
-  <div class="container max-w-2xl w-full mx-auto">
+  <div class="container max-w-2xl w-full mx-auto px-0">
     <div class="flex justify-between items-center gap-6">
       <a href="/" class="text-accent">{"< website"}</a>
-      <ThemeToggle client:load />
+      <!-- <ThemeToggle client:load /> -->
     </div>
     <div
       class="mt-16 flex items-start gap-6 flex-col sm:flex-row sm:items-center"

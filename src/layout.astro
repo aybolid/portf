@@ -16,7 +16,7 @@ interface Props {
 const { title, noHeader = false, noFooter = false } = Astro.props;
 ---
 
-<script is:inline>
+<!-- <script is:inline>
   const setTheme = () => {
     const root = document.documentElement;
     const theme = (() => {
@@ -45,9 +45,8 @@ const { title, noHeader = false, noFooter = false } = Astro.props;
   document.addEventListener("astro:after-swap", setTheme);
 
   setTheme();
-</script>
-
-<html lang="en">
+</script> -->
+<html lang="en" class="dark">
   <head>
     <Posthog />
     <meta charset="utf-8" />
@@ -62,7 +61,7 @@ const { title, noHeader = false, noFooter = false } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{`${NAME} | ${title}`}</title>
   </head>
-  <body class="h-dvh w-dvw flex flex-col gap-16">
+  <body class="h-dvh w-dvw flex flex-col gap-16 overflow-x-hidden">
     {!noHeader && <Header />}
     <main
       class={cn(
