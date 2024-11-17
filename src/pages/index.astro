@@ -1,8 +1,14 @@
 ---
 import { NAME } from "../consts";
 import Layout from "../layout.astro";
+import { getCollection } from "astro:content";
 
-const meMd = (await Astro.glob("../pages/_content/me.md"))[0];
+const aboutCollection = await getCollection("about-me");
+const { Content } = await (
+  aboutCollection.find(
+    (item: any) => item.slug === process.env.INDEX_PAGE_VERSION,
+  ) ?? aboutCollection[aboutCollection.length - 1]
+).render();
 ---
 
 <Layout title="home">
@@ -18,6 +24,6 @@ const meMd = (await Astro.glob("../pages/_content/me.md"))[0];
   <div
     class="prose dark:prose-invert prose-a:decoration-accent max-w-full w-full mt-12"
   >
-    <meMd.Content />
+    <Content />
   </div>
 </Layout>

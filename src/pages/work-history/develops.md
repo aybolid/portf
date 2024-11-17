@@ -37,7 +37,7 @@ tags:
   - outstaff
 
 startDate: 2023-07-25
-endDate:
+endDate: 2024-11-15
 ---
 
 # JavaScript Developer at [DevelopsToday](https://develops.today/)
