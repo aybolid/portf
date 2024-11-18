@@ -15,7 +15,13 @@ const currentMdFile =
   mdFiles.find((file) => file.url?.includes(pathname)) ?? null;
 ---
 
-<Layout title={currentMdFile?.frontmatter.title ?? "work history"}>
+<Layout
+  title={currentMdFile?.frontmatter.title ?? "my experience"}
+  seo={{
+    description: currentMdFile?.frontmatter.description ?? "",
+    keywords: currentMdFile?.frontmatter.tags ?? [],
+  }}
+>
   <GoBack />
 
   {

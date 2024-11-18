@@ -8,7 +8,21 @@ const projects = await Astro.glob<PostFrontmatter<"project">>(
 );
 ---
 
-<Layout title="my projects">
+<Layout
+  title="my projects"
+  seo={{
+    description: "My personal projects.",
+    keywords: [
+      "projects",
+      "web",
+      "developer",
+      "pet projects",
+      "skills",
+      "github",
+      "code",
+    ],
+  }}
+>
   <HomeLink />
   <h1 class="text-2xl">My Projects</h1>
 

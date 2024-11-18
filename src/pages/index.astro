@@ -11,7 +11,13 @@ const { Content } = await (
 ).render();
 ---
 
-<Layout title="home">
+<Layout
+  title="home"
+  seo={{
+    description: "My personal website. Get to know me and my work.",
+    keywords: ["whoami", "software engineer", "web developer"],
+  }}
+>
   <p class="text-xs md:text-sm text-muted-foreground">
     That's me and my website! 👋
   </p>

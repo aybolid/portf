@@ -46,7 +46,10 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<Layout title="say smth">
+<Layout
+  title="say smth"
+  seo={{ description: "Say something to me. Leave a comment." }}
+>
   <HomeLink />
   <h1 class="text-2xl">Comments</h1>
 

@@ -8,7 +8,7 @@ interface Props {
 const { error } = Astro.props;
 ---
 
-<Layout title="smth went wrong">
+<Layout title="smth went wrong" , seo={{ description: "error loading page" }}>
   <div class="flex items-center justify-center">
     <div>
       <h1 class="text-2xl">Something went wrong...</h1>

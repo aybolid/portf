@@ -11,9 +11,14 @@ interface Props {
   title: string;
   noHeader?: boolean;
   noFooter?: boolean;
+
+  seo?: Partial<{
+    description: string;
+    keywords: string | string[];
+  }>;
 }
 
-const { title, noHeader = false, noFooter = false } = Astro.props;
+const { title, noHeader = false, noFooter = false, seo = {} } = Astro.props;
 ---
 
 <!-- <script is:inline>
@@ -50,6 +55,25 @@ const { title, noHeader = false, noFooter = false } = Astro.props;
   <head>
     <Posthog />
     <meta charset="utf-8" />
+
+    <meta name="description" content={seo.description} />
+    <meta
+      name="keywords"
+      content={(Array.isArray(seo.keywords)
+        ? seo.keywords.join(", ")
+        : seo.keywords) +
+        `, blog, website, portfolio, resume, cv, about, me, ${NAME}`}
+    />
+    <meta name="author" content={NAME} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={Astro.url} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={seo.description} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,8 +81,10 @@ const { title, noHeader = false, noFooter = false } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
+
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
     <title>{`${NAME} | ${title}`}</title>
   </head>
   <body class="h-dvh w-dvw flex flex-col gap-16 overflow-x-hidden">
