@@ -1,12 +1,61 @@
 ---
 import HomeLink from "../components/home-link.astro";
 import Layout from "../layout.astro";
+import type { PostFrontmatter } from "../types/md-frontmatter";
+
+const projects = await Astro.glob<PostFrontmatter<"project">>(
+  "../pages/my-projects/*.md",
+);
 ---
 
 <Layout title="my projects">
   <HomeLink />
   <h1 class="text-2xl">My Projects</h1>
-  <p class="text-muted-foreground text-sm text-center mt-6">
-    Hm. Why this page is empty? I do rember that I did some projects. 🥲
-  </p>
+
+  <section class="grid grid-cols-2 gap-5 mt-6">
+    {
+      projects.map(({ frontmatter, url }) => (
+        <div class="relative">
+          <span class="absolute -top-2 right-4 text-sm bg-accent text-white px-2 rounded-md">
+            {frontmatter.type}
+          </span>
+
+          <a href={url}>
+            <div class="border p-4 rounded-md hover:border-accent hover:bg-muted/30 flex flex-col">
+              <h2 class="text-xl font-bold">{frontmatter.title}</h2>
+              <p class="text-sm text-muted-foreground flex-1 my-3">
+                {frontmatter.description}
+              </p>
+            </div>
+          </a>
+          <div class="px-4 py-2 grid gap-2 grid-cols-3">
+            {frontmatter.links.map(({ label, url }) => (
+              <a
+                href={url}
+                target="_blank"
+                class="text-sm text-muted-foreground hover:text-foreground hover:underline decoration-accent flex items-center gap-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-link"
+                >
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </section>
 </Layout>

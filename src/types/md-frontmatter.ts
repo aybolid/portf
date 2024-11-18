@@ -6,7 +6,11 @@ type BaseFrontmatter = {
 };
 
 type ProjectFrontmatter = {
-  [key: string]: unknown;
+  links: {
+    label: string;
+    url: string;
+  }[];
+  type: string;
 } & BaseFrontmatter;
 
 type WorkFrontmatter = {
