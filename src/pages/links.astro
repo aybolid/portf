@@ -1,6 +1,8 @@
 ---
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from "../consts";
 import Layout from "../layout.astro";
+import { Image } from "astro:assets";
+import MePhoto from "../assets/me1x1.jpg";
 // import { ThemeToggle } from "../solid/theme-toggle";
 ---
 
@@ -22,11 +24,7 @@ import Layout from "../layout.astro";
       class="mt-16 flex items-start gap-6 flex-col sm:flex-row sm:items-center"
     >
       <div class="max-w-[120px] aspect-square w-full">
-        <img
-          src="https://placehold.co/300x300"
-          alt="me"
-          class="rounded-md border-2 border-accent"
-        />
+        <Image src={MePhoto} alt="me" class="rounded-md" />
       </div>
       <section>
         <h1 class="text-3xl font-semibold">{SITE_TITLE}</h1>
