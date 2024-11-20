@@ -43,7 +43,7 @@ const projects = await Astro.glob<PostFrontmatter<"project">>(
             </div>
           </a>
           <div class="px-4 py-2 flex gap-2 flex-wrap">
-            {frontmatter.links.map(({ label, url }) => (
+            {frontmatter.links?.map(({ label, url }) => (
               <a
                 href={url}
                 target="_blank"

@@ -3,13 +3,13 @@ type BaseFrontmatter = {
   title: string;
   description: string;
   tags: string[];
-};
-
-type ProjectFrontmatter = {
-  links: {
+  links?: {
     label: string;
     url: string;
   }[];
+};
+
+type ProjectFrontmatter = {
   type: string;
 } & BaseFrontmatter;
 
