@@ -1,5 +1,5 @@
 ---
-import { EMAIL, GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from "../consts";
+import { EMAIL, GITHUB_URL, LINKEDIN_URL, NAME, DJINNI_URL } from "../consts";
 import Layout from "../layout.astro";
 import { Image } from "astro:assets";
 import MePhoto from "../assets/me1x1.jpg";
@@ -27,7 +27,7 @@ import MePhoto from "../assets/me1x1.jpg";
         <Image src={MePhoto} alt="me" class="rounded-md" />
       </div>
       <section>
-        <h1 class="text-3xl font-semibold">{SITE_TITLE}</h1>
+        <h1 class="text-3xl font-semibold">{NAME}</h1>
         <p class="text-muted-foreground">I'm a software engineer.</p>
       </section>
     </div>
@@ -94,13 +94,22 @@ import MePhoto from "../assets/me1x1.jpg";
           </span>
           <span>LinkedIn</span>
         </a>
+        <a
+          id="djinni"
+          href={DJINNI_URL}
+          target="_blank"
+          class="border rounded-md flex items-center justify-between px-2 py-1 hover:border-accent bg-background hover:bg-gradient-to-r from-accent/10 via-transparent to-transparent"
+        >
+          <img src="http://www.google.com/s2/favicons?domain=djinni.co" />
+          <span>Djinni</span>
+        </a>
       </div>
     </section>
   </div>
 </Layout>
 
 <script is:inline>
-  const linkIds = ["email", "github", "linkedin"];
+  const linkIds = ["email", "github", "linkedin", "djinni"];
 
   for (const id of linkIds) {
     const link = document.getElementById(id);
