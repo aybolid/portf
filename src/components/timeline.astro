@@ -12,19 +12,19 @@ interface Props {
 
 const { startDate, endDate, isFirst, isLast } = Astro.props;
 
-const getMonthDiff = (startDate: string, endDate: string | null) => {
-  if (!endDate) {
-    endDate = new Date().toString();
-  }
-  const d1 = new Date(startDate);
-  const d2 = new Date(endDate);
+// const getMonthDiff = (startDate: string, endDate: string | null) => {
+//   if (!endDate) {
+//     endDate = new Date().toString();
+//   }
+//   const d1 = new Date(startDate);
+//   const d2 = new Date(endDate);
+//
+//   return (
+//     d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear())
+//   );
+// };
 
-  return (
-    d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear())
-  );
-};
-
-const monthDiff = getMonthDiff(startDate, endDate);
+<!-- const monthDiff = getMonthDiff(startDate, endDate); -->
 ---
 
 <div
@@ -33,10 +33,10 @@ const monthDiff = getMonthDiff(startDate, endDate);
     !endDate && "border-dashed",
   )}
 >
-  <span class="text-xs -rotate-90 absolute -left-12 top-1/2 transalte-y-1/2">
-    {monthDiff}
-    {monthDiff > 1 ? "months" : "month"}
-  </span>
+  <!-- <span class="text-xs -rotate-90 absolute -left-12 top-1/2 transalte-y-1/2"> -->
+  <!--   {monthDiff} -->
+  <!--   {monthDiff > 1 ? "months" : "month"} -->
+  <!-- </span> -->
 
   {
     isFirst && (
