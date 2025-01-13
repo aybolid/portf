@@ -37,7 +37,7 @@ tags:
   - outstaff
 
 startDate: 2023-07-25
-endDate:
+endDate: 2024-12-16
 ---
 
 # JavaScript Developer at [DevelopsToday](https://develops.today/)
@@ -47,16 +47,19 @@ endDate:
 As a **JavaScript developer**, I have experience working on both the frontend and backend in an outstaffing environment, contributing to a wide range of projects.
 
 ### **Frontend Development**
+
 - Proficient in **React** and its ecosystem (**Redux**, **React Router**, **TanStack Query**, etc.), as well as frameworks like **Next.js** and **Remix**.
 - Developed mobile applications using **React Native** and **Expo**.
 - Responsibilities included building user interfaces, integrating them with backend services, implementing business logic, testing, and deploying applications.
 
 ### **Backend Development**
+
 - Worked with **Node.js** and both **SQL** and **NoSQL** databases.
 - Leveraged **AWS** services and explored the serverless ecosystem in one project.
 - Tasks involved building APIs, managing backend infrastructure, and ensuring application scalability and reliability.
 
 ### **Additional Contributions**
+
 - Played an active role in **onboarding new developers**, ensuring smooth transitions for team members.
 - Took ownership of **project management**, ensuring deliverables were met on time and aligned with client expectations.
 - Maintained regular communication with clients to gather requirements, provide updates, and ensure project success.
