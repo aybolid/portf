@@ -2,7 +2,7 @@
 import { SITE_TITLE } from "../consts";
 import { cn } from "../utils/cn";
 
-const pageLinks = ["/work-history", "/my-projects", "/say-smth"];
+const pageLinks = ["/work-history", "/my-projects"];
 const currentPathname = new URL(Astro.request.url).pathname;
 ---
 
@@ -22,7 +22,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
             <a
               class={cn("hover:underline text-nowrap text-sm md:text-base", {
                 "text-accent font-semobold": currentPathname.includes(
-                  url ?? "^#$5",
+                  url ?? "^#$5"
                 ),
               })}
               href={url}

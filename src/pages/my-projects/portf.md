@@ -16,8 +16,6 @@ tags:
   - astro
   - tailwind
   - typescript
-  - turso
-  - drizzle
   - solid
 ---
 
@@ -34,15 +32,6 @@ For parts of the site that require reactivity, I used [Solid](https://www.solidj
 ## User interface and design
 
 The UI is built with [Tailwind CSS](https://tailwindcss.com/), a powerful library that simplifies styling. The design reflects my identity as a developer, using a monospace font throughout the application. It’s minimalistic and simple while maintaining a modern and informative feel.
-
-## Comments feature
-
-Although I’m not sure if anyone will ever use it, I decided to implement a comments feature anyway. I think it adds a layer of interactivity that makes the site feel more “alive.”
-
-You can leave comments on the [/say-smth](/say-smth) page. These comments are stored in a hosted **libSQL** database via [Turso](https://turso.tech/).
-In the app, the database is managed by Astro's [Drizzle ORM](https://orm.drizzle.team/) integration.
-
-The comments page is server-side rendered, while the rest of the site is statically generated. This is necessary to support form submissions in Astro. While I’m not a fan of the slightly longer load time for this page, it’s acceptable for now.
 
 ## Deployment
 
