@@ -13,4 +13,3 @@ This is my portfolio app.
 - [Astro](https://astro.build)
 - [Solid](https://www.solidjs.com/) - client side interactivity
 - [TailwindCSS](https://tailwindcss.com/) - styling
-- [Turso](https://turso.tech) - remote database
