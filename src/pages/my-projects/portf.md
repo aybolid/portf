@@ -2,7 +2,7 @@
 layout: ../../md-page-layout.astro
 title: Portfolio
 
-type: fullstack
+type: website
 
 description: >
   This project you can see right now! 😎
